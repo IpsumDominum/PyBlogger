@@ -1,0 +1,84 @@
+#!/usr/bin/env python3
+
+import os
+from pyfiglet import Figlet
+from sys import argv
+from utils import *
+abs_root_path = os.path.abspath(__file__)
+#---------------------------------------------------
+"""
+Some Commands available:
+---------------------------------------------------------
+|pyblogger init|    - to start a blog project.A blog project consists of
+                      +root
+                         +Layouts
+                            ~All the layout stuff, a preinitiated header.html.
+                         +Pages
+                            ~All the pages that should be generated.
+                         +EasyToWriteMarkDownFiles
+                            ~As name suggests
+                         +index.html
+                            ~default index page of the website
+                         +index page
+                         +config
+-----------------------------------------------------------
+|pyblogger newpost|     - to create a new blog, two new pages are automatically generated,
+                          one in the pages directory, which is where the html files will be 
+                          served, another in the EasyToWriteMarkDownFiles directory.
+|pyblogger compile|     - Compiles your markdown files into html
+|pyblogger commit -git| - Commits changes
+                      
+"""
+#template = Techmplate('hi {{name}}')
+#print(template.render(name="hi"))
+#indexfile = "index.html"
+active_flag = "false"
+if __name__ == "__main__":
+    if(len(argv)>=2):
+        if(os.path.exists("BloggyBlog/config.txt")):
+            Blogger = PyBlogger("BloggyBlog")
+            active_flag="true"
+        else:
+            active_flag="false"
+        if(argv[1]=="init"):
+            #checks for whether the project has already been initialized,
+            #if so, aborts.
+            if(active_flag=="true"):
+                print("a Blog Project already exists in this directory, aborting...")
+                exit()
+            else:
+                #write config file--------------------------
+                project_name = "BloggyBlog"
+                Blogger = PyBlogger(project_name)
+                Blogger.initialize_project()
+                exit()
+        elif(argv[1]=="newpost"):
+            Blogger.new_post()
+            Blogger.compile()
+            exit()
+        elif(argv[1]=="newtab"):
+            Blogger.new_tab()
+            Blogger.compile()
+            exit()
+        elif(argv[1]=="compile"):
+            Blogger.compile()
+            exit()
+        elif(argv[1]=="commit"):
+            print('shalom')
+            exit()
+    else:
+        print("""Usage: 
+        |pyblogger init| - initializes a new project
+        |pyblogger newpost| - new post.
+        |pyblogger compile| - compiles the markdowns
+        |pyblogger commit| - commits changes
+                             """)
+# f = Figlet(font='slant')
+# print(f.renderText('Py-Blogger'))
+#print("v1.3")
+
+
+
+
+
+    
