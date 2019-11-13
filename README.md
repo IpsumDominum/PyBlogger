@@ -7,10 +7,13 @@ Pyblogger is a simple minimalistic static markdown blog generator for github pag
   ```git clone ```
   Then extract it anywhere,and add the directory to ~/.bashrc or equivalent (to path)
   ### install dependencies:
-      ```pip install -r requirements```
+     ``` pip install -r requirements
+     ```
       or
-      ```pip3 install -r requirements```
+     ``` pip3 install -r requirements 
+     ```
       highly recommend using a virtual enviornment :) but not nessacery.
+      
       ```Usage: 
         |pyblogger init| - initializes a new project
         |pyblogger newpost| - new post.
