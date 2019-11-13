@@ -2,8 +2,10 @@
 
 import os
 from pyfiglet import Figlet
+import inquirer
 from sys import argv
 from utils import *
+
 abs_root_path = os.path.abspath(__file__)
 #---------------------------------------------------
 """
@@ -34,21 +36,25 @@ Some Commands available:
 #indexfile = "index.html"
 active_flag = "false"
 if __name__ == "__main__":
+    active_flag="false"
+    for x in next(os.walk(os.getcwd()))[1]:
+        if(os.path.isdir(x)):
+            if "config.txt" in (os.listdir(x)):
+                print('found project: {0}'.format(x))
+                Blogger = PyBlogger(x)
+                active_flag="true"
+                break
     if(len(argv)>=2):
-        if(os.path.exists("BloggyBlog/config.txt")):
-            Blogger = PyBlogger("BloggyBlog")
-            active_flag="true"
-        else:
-            active_flag="false"
         if(argv[1]=="init"):
             #checks for whether the project has already been initialized,
             #if so, aborts.
             if(active_flag=="true"):
-                print("a Blog Project already exists in this directory, aborting...")
+                print("a Blog Project already exists in this directory,aborting")
                 exit()
             else:
                 #write config file--------------------------
-                project_name = "BloggyBlog"
+                print("Give a name to the blog project:",end="")
+                project_name = input()
                 Blogger = PyBlogger(project_name)
                 Blogger.initialize_project()
                 exit()
@@ -62,6 +68,39 @@ if __name__ == "__main__":
             exit()
         elif(argv[1]=="compile"):
             Blogger.compile()
+            exit()
+        elif(argv[1]=="editposts"):
+            all_posts = Blogger.get_posts()
+            questions=[
+            inquirer.List('post',
+                          message="Choose a Post:",
+                          choices=all_posts)]
+            post = inquirer.prompt(questions)
+            exit()
+        elif(argv[1]=="deletepost"):
+            all_posts = Blogger.get_posts()
+            questions=[
+            inquirer.List('post',
+                          message="Which to delete?:",
+                          choices=all_posts)]
+            post = inquirer.prompt(questions)
+            print("Are you sure to delete: '{0}' ?".format(post['post']))
+            print("type CONFIRM to confirm")
+            response = input()
+            if(response=="CONFIRM"):
+                htmlpath = os.path.join(Blogger.project_name,"html",post['post']+".html")
+                mdpath = os.path.join(Blogger.project_name,"pages",post['post']+".md")
+                try:
+                    os.remove(htmlpath)
+                except Exception:
+                    pass
+                try:
+                    os.remove(mdpath)
+                except Exception:
+                    pass
+                print("POST: '{0}' deleted...".format(post['post']))
+            else:
+                print("Canceled...")
             exit()
         elif(argv[1]=="commit"):
             print('shalom')

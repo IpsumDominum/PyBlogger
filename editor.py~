@@ -1,0 +1,3 @@
+from markdown_editor import web_edit
+from markdown_editor.editor import MarkdownDocument
+HTML_HEAD = "Edit Posts"

@@ -23,7 +23,7 @@ class PyBlogger:
         except FileNotFoundError:
             self.config_dict = {}
     def get_posts(self):
-        print(os.listdir(os.path.join(self.project_name,"html")))
+        return [x[:-5] for x in os.listdir(os.path.join(self.project_name,"html"))]
     def get_tabs(self):
         tabs = []
         for i,markdown in enumerate(os.listdir(os.path.join(self.project_name,"tabs"))):
@@ -62,7 +62,7 @@ class PyBlogger:
         print("What is the name of the post:",end="")
         post_name = input()
         with open(os.path.join(self.project_name,"pages",post_name+".md"),"w") as file:
-            file.write(default_page_instructions)
+            file.write("#"+post_name+"\n"+default_page_instructions)
         compiled = self.compilemarkdown(default_page_instructions).render(project_name="..")
         with open(os.path.join(self.project_name,"html",post_name+".html"),"w") as file:
             file.write(compiled)
@@ -70,7 +70,7 @@ class PyBlogger:
         print("What is the name of the tab:",end="")
         tab_name = input()
         with open(os.path.join(self.project_name,"tabs",tab_name+".md"),"w") as file:
-            file.write(default_page_instructions)
+            file.write("#"+tab_name+"\n"+default_page_instructions)
         compiled = self.compilemarkdown(default_page_instructions).render(project_name="..")
         with open(os.path.join(self.project_name,"tabshtml",tab_name+".html"),"w") as file:
             file.write(compiled)

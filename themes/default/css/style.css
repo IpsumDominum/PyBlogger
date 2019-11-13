@@ -1,1 +1,46 @@
+.itemrow{
+    background-color: green;
+    width:100%;
+}
+.thumbnail:hover{
+    border:solid orange 10px;
+}
+h1{
+    border-bottom:black solid 0.01px;
+}
+h2{
+    border-bottom:black solid 0.01px;
+}
+body {
+    font-family: 'Yellowtail';font-size: 22px;
+}
+p{
+    font-family: 'Yeon Sung';font-size: 15px;
+}
+.bigarrow{
+    color:orange;
+    font-family: 'Yeon Sung';font-size: 500px;
+}
+.bigarrow:hover{
+}
+.disabled{
+    color:grey;
+}
+.pages{
+    font-family: 'Yeon Sung';font-size: 30px;
+}
+.thumb{
+    height:80%;
+}
+.info{
+    height:10%;
+}
+.itembox{
+    background-color: white;
+    border-width:thin;
+    border-bottom:black solid 0.01px;
+    width:30%;
+    height:30%;
+}
+
 

@@ -1,4 +1,10 @@
+bottle==0.12.17
 Jinja2==2.10.3
+Markdown==3.1.1
+Markdown-Editor==1.0.4
 MarkupSafe==1.1.1
 mistune==0.8.4
+pep562==1.0
 pyfiglet==0.8.post1
+Pygments==2.4.2
+pymdown-extensions==6.1
