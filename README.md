@@ -26,3 +26,6 @@ Initiate a project by ```pyblogger init```, then a directory is generated:
   Integration with git
   Server hosting
   better documentation
+# Credit:
+  mistune
+  jinja2
