@@ -5,7 +5,7 @@ Pyblogger is a simple minimalistic static markdown blog generator for github pag
 # installation
   ### currently only tested on Ubuntu 18.04 
   if you would like to use pyblogger to generate your own blogs. Right now the best way is to clone this repo:
-  ```git clone ```
+  ```git clone https://github.com/IpsumDominum/PyBlogger.git```
   Then extract it anywhere,and add the directory to ~/.bashrc or equivalent (to path)
   ### install dependencies:
      ``` pip install -r requirements
