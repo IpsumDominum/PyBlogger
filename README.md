@@ -25,7 +25,7 @@ Pyblogger is a simple minimalistic static markdown blog generator for github pag
         then use your normal ```python pyblogger.py -command```. Should work if all the dependencies are right.
   ### mac:
         Same as windows
-#How it works
+# How it works
 ```code
 Usage: 
         |pyblogger init|    - initializes a new project
@@ -51,6 +51,7 @@ Initiate a project by ```pyblogger init```, then a directory is generated:
   Integration with git
   Server hosting
   better documentation
+  themes (currently only a default minimalist theme is used)
 # Credit:
   mistune
   jinja2
