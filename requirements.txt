@@ -1,4 +1,6 @@
+blessings==1.7
 bottle==0.12.17
+inquirer==2.6.3
 Jinja2==2.10.3
 Markdown==3.1.1
 Markdown-Editor==1.0.4
@@ -8,3 +10,6 @@ pep562==1.0
 pyfiglet==0.8.post1
 Pygments==2.4.2
 pymdown-extensions==6.1
+python-editor==1.0.4
+readchar==2.0.1
+six==1.13.0
