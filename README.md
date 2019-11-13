@@ -1,5 +1,4 @@
 # PyBlogger
-[![Build Status]Good
 
 
 Pyblogger is a simple minimalistic static markdown blog generator for github pages written in python, It's used to generate my personal blog: ipsumdominum.github.io
