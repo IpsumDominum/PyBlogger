@@ -1,7 +1,7 @@
 blessings==1.7
 bottle==0.12.17
 inquirer==2.6.3
-Jinja2==2.10.3
+Jinja2==2.11.3
 Markdown==3.1.1
 Markdown-Editor==1.0.4
 MarkupSafe==1.1.1
